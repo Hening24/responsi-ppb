@@ -1,0 +1,29 @@
+{
+  "name": "responsi-ppb",
+  "version": "1.0.0",
+  "description": "REST API Layanan Pencatatan Peminjaman Buku Perpustakaan menggunakan Express.js dan Supabase",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "keywords": [
+    "express",
+    "supabase",
+    "rest-api",
+    "library",
+    "loans"
+  ],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.117.2",
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.5",
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
