@@ -1,0 +1,229 @@
+{
+  "info": {
+    "_postman_id": "a8f7c9e0-1234-4567-89ab-cdef01234567",
+    "name": "Library Loan Management API - Responsi PPB 2026",
+    "description": "Koleksi request pengujian REST API Peminjaman Buku Perpustakaan untuk Responsi PPB 2026.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "1. Health Check & Info",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            ""
+          ]
+        },
+        "description": "Endpoint index untuk mengecek status API dan daftar route."
+      },
+      "response": []
+    },
+    {
+      "name": "2. Get All Loans",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/loans",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "loans"
+          ]
+        },
+        "description": "Mengambil seluruh data peminjaman buku perpustakaan."
+      },
+      "response": []
+    },
+    {
+      "name": "3. Filter Loans - Status Terlambat",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/loans?status=Terlambat",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "loans"
+          ],
+          "query": [
+            {
+              "key": "status",
+              "value": "Terlambat",
+              "description": "Menyaring hanya peminjaman yang berstatus Terlambat"
+            }
+          ]
+        },
+        "description": "Fitur filter query berdasarkan status 'Terlambat'."
+      },
+      "response": []
+    },
+    {
+      "name": "4. Filter Loans - Status Dipinjam",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/loans?status=Dipinjam",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "loans"
+          ],
+          "query": [
+            {
+              "key": "status",
+              "value": "Dipinjam"
+            }
+          ]
+        },
+        "description": "Fitur filter query berdasarkan status 'Dipinjam'."
+      },
+      "response": []
+    },
+    {
+      "name": "5. Filter Loans - Cari Nama Anggota",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/loans?member_name=Ahmad",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "loans"
+          ],
+          "query": [
+            {
+              "key": "member_name",
+              "value": "Ahmad"
+            }
+          ]
+        },
+        "description": "Fitur filter pencarian nama anggota perpustakaan."
+      },
+      "response": []
+    },
+    {
+      "name": "6. Get Loan Detail by ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/loans/1",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "loans",
+            "1"
+          ]
+        },
+        "description": "Mendapatkan detail satu transaksi peminjaman buku berdasarkan ID."
+      },
+      "response": []
+    },
+    {
+      "name": "7. Create New Loan (POST)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"member_name\": \"Muhammad Rizky\",\n  \"member_code\": \"MBR-005\",\n  \"book_title\": \"Refactoring: Improving the Design of Existing Code\",\n  \"book_isbn\": \"978-0134757599\",\n  \"loan_date\": \"2026-10-01\",\n  \"due_date\": \"2026-10-08\",\n  \"status\": \"Dipinjam\",\n  \"notes\": \"Peminjaman untuk bahan skripsi\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/loans",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "loans"
+          ]
+        },
+        "description": "Menambahkan transaksi peminjaman baru oleh anggota."
+      },
+      "response": []
+    },
+    {
+      "name": "8. Update Loan (PUT)",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"status\": \"Kembali\",\n  \"return_date\": \"2026-10-05\",\n  \"notes\": \"Buku dikembalikan tepat waktu dalam kondisi sangat baik.\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/loans/1",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "loans",
+            "1"
+          ]
+        },
+        "description": "Memperbarui data atau status pengembalian buku peminjaman ID 1."
+      },
+      "response": []
+    },
+    {
+      "name": "9. Delete Loan (DELETE)",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/loans/1",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "loans",
+            "1"
+          ]
+        },
+        "description": "Menghapus data peminjaman buku berdasarkan ID."
+      },
+      "response": []
+    }
+  ]
+}

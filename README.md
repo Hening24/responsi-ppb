@@ -8,7 +8,7 @@ REST API sederhana untuk layanan pencatatan peminjaman buku perpustakaan yang di
 
 | Komponen | Tautan | Keterangan |
 | :--- | :--- | :--- |
-| **Repository GitHub** | `https://github.com/<username>/<repo-name>` | Repositori publik berisi source code & dokumentasi |
+| **Repository GitHub** | [https://github.com/Hening24/responsi-ppb](https://github.com/Hening24/responsi-ppb) | Repositori publik berisi source code & dokumentasi |
 | **Base URL Vercel** | `https://<project-name>.vercel.app` | Base URL deployment aktif yang dapat diakses publik |
 
 > 💡 *Catatan: Gantilah tautan di atas dengan link GitHub dan URL Vercel Anda setelah proses deploy selesai.*
